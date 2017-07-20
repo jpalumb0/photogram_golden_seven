@@ -5,6 +5,8 @@
 <ul>
   <% @photos.each do |the_photo| %>
     <li><img src= "<%= the_photo.source %>"></li>
-    <li><a class = "btn btn-default" href="/photos/the_photo.id" role="button">Show Details</li>
+    <li><a class = "btn btn-default" href="/photos/<%= the_photo.id %>" role="button">Show Details</li>
+    <li><a class = "btn btn-default" href="/photos/<%= the_photo.id %>/edit" role="button">Edit</li>
+    <li><a class = "btn btn-default" href="/delete_photo/<%= the_photo.id %>" role="button">Delete</li>
   <% end %>
 </ul>
