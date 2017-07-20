@@ -4,11 +4,23 @@ class PicturesController < ApplicationController
     end
     
     def create_row
+       
+        source = params["the_source"]
+        caption = params["the_caption"]
+        
+        p = Photo.new
+        
+        p.source = source
+        p.caption = caption
+        
+        p.save
         
         render("pic_templates/create_row.html.erb")
     end
     
     def index
+        
+        @photos = Photo.all.order(created_at: :desc)
         render("pic_templates/index.html.erb")
     end
     
@@ -30,6 +42,8 @@ class PicturesController < ApplicationController
     end
     
     def destroy_row
+        
+        url = "/delet"
         
         render("pics_template/destroy.html.erb")
     end

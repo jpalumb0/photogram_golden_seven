@@ -1,1 +1,10 @@
-<h1>Hi</h1>
+<h1>All Photos</h1>
+
+<a href = "/photos/new">Add a new photo</a>
+
+<ul>
+  <% @photos.each do |the_photo| %>
+    <li><img src= "<%= the_photo.source %>"></li>
+    <li><a class = "btn btn-default" href="/photos/the_photo.id" role="button">Show Details</li>
+  <% end %>
+</ul>
