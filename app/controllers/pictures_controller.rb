@@ -15,7 +15,7 @@ class PicturesController < ApplicationController
         
         p.save
         
-        render("pic_templates/create_row.html.erb")
+        redirect_to("/photos")
     end
     
     def index
@@ -50,13 +50,14 @@ class PicturesController < ApplicationController
         
         @pic.save
         
-        render("pic_templates/update.html.erb")
+        render("pic_templates/show.html.erb")
     end
     
     def destroy_row
         
-        url = "/delet"
+        @pic = Photo.find(params["toast_id"])
+        @pic.destroy
         
-        render("pics_template/destroy.html.erb")
+        redirect_to("/photos")
     end
 end
