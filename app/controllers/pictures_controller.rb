@@ -50,7 +50,7 @@ class PicturesController < ApplicationController
         
         @pic.save
         
-        render("pic_templates/show.html.erb")
+        redirect_to("/photos/"+@pic.id.to_s)
     end
     
     def destroy_row
